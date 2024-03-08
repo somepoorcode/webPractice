@@ -47,3 +47,6 @@ $answer -= 2;
 $answer /= 2;
 $answer -= $my_num;
 echo "<br>", $answer;
+
+// Task 14
+echo "<br>", "<b>"."Task 14"."</b>";
