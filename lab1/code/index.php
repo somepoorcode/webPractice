@@ -24,7 +24,7 @@ echo "<br>", "Разница в расходах между прошлым и т
 
 
 // Task 11
-echo "<br>", "<b>"."Task 10"."</b>";
+echo "<br>", "<b>"."Task 11"."</b>";
 $num_languages = 4;
 $month = 11;
 $days = $month * 16;
