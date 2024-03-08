@@ -121,3 +121,12 @@ echo "<br>", "Необходимо сложить $given_arr_num первых э
 
 // Task 15
 echo "<br>", "<b>"."Task 15"."</b>";
+function printStringReturnNumber($str)
+{
+    echo "<br>", $str;
+    $num = 15;
+    return $num;
+}
+$my_num = printStringReturnNumber("Artem");
+echo "<br>", $my_num;
+
