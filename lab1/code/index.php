@@ -13,4 +13,5 @@ echo "\nYour order is: $very_bad_unclear_name.";
 
 
 // Task 2
-
+$number = 15;
+echo "$number";
