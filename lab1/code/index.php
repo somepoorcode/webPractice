@@ -30,3 +30,7 @@ $month = 11;
 $days = $month * 16;
 $days_per_language = $days / $num_languages;
 echo "<br>", "Среднее количество дней потраченных на изучение языков: ", $days_per_language, ".";
+
+
+// Task 12
+echo "<br>", "<b>"."Task 12"."</b>";
