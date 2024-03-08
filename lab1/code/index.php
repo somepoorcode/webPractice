@@ -183,3 +183,6 @@ function countDigitsSum($num)
 }
 echo "<br />", countDigitsSum($someNum);
 
+
+// Task 17
+echo "<br />", "<b>"."Task 17"."</b>";
