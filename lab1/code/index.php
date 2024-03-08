@@ -325,3 +325,7 @@ echo "<br />", "Пирамидка:";
 for ($i = 1; $i <= $rows; $i++):
     echo "<br />", str_repeat("x", $i);
 endfor;
+
+
+// Task 20
+echo "<br />", "<b>"."Task 20"."</b>";
