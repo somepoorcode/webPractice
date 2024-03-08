@@ -320,3 +320,8 @@ checkArrayElements($mysteryArr);
 
 // Task 19
 echo "<br />", "<b>"."Task 19"."</b>";
+$rows = 20;
+echo "<br />", "Пирамидка:";
+for ($i = 1; $i <= $rows; $i++):
+    echo "<br />", str_repeat("x", $i);
+endfor;
