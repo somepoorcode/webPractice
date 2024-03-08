@@ -329,3 +329,22 @@ endfor;
 
 // Task 20
 echo "<br />", "<b>"."Task 20"."</b>";
+$funnyArr = [14, 251, 215, 903];
+$average = array_sum($funnyArr) / sizeof($funnyArr);
+echo "<br />", "Среднее арифмитическое массива: $average";
+
+$funnySum = (100 * (1 + 100)) / 2;
+echo "<br />", "Сумма чисел от 1 до 100: ", $funnySum;
+
+$coolArr = [225, 9, 1];
+$coolerArr = array_map('sqrt', $coolArr);
+echo "<br />", "Массив квадратных корней: ", implode(", ", $coolerArr);
+
+$sadLetters = range("a", "z");
+$sadNumbers = range(1, 26);
+$sadArray = array_combine($sadLetters, $sadNumbers);
+
+$exhaustedNumbers = "1234567890";
+$exhaustedArray = str_split($exhaustedNumbers, 2);
+$sumExhaustedNumbers = array_sum($exhaustedArray);
+echo "<br />", "Сумма пар чисел: ", $sumExhaustedNumbers;
