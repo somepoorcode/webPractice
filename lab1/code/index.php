@@ -20,3 +20,6 @@ $number1 = 14.325;
 echo "$number1";
 $number2 = 2.325;
 echo "\n", $number1-$number2;
+$last_month = 1187.23;
+$this_month = 1089.98;
+echo "<br>", "Разница в расходах между прошлым и текущим месяцем: ", $last_month - $this_month, ".";
