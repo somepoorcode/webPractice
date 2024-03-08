@@ -130,3 +130,6 @@ function printStringReturnNumber($str)
 $my_num = printStringReturnNumber("Artem");
 echo "<br>", $my_num;
 
+
+// Task 16
+echo "<br>", "<b>"."Task 16"."</b>";
