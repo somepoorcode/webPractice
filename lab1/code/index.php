@@ -317,3 +317,6 @@ function checkArrayElements($arr)
 }
 checkArrayElements($mysteryArr);
 
+
+// Task 19
+echo "<br />", "<b>"."Task 19"."</b>";
