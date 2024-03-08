@@ -186,3 +186,75 @@ echo "<br />", countDigitsSum($someNum);
 
 // Task 17
 echo "<br />", "<b>"."Task 17"."</b>";
+$xArr = [];
+function arrayFillWithXxx($arr, $num)
+{
+    for ($i=1; $i <= $num; $i++):
+        $arr[$i-1] = str_repeat("x", $i);
+    endfor;
+    return $arr;
+}
+echo "<br />", "Массив, заполненый 'x', 'xx', 'xxx', ...: ", implode(", ", arrayFillWithXxx($xArr, 5));
+
+function arrayFill($str, $num)
+{
+    $arr = [];
+    for ($i=1; $i <= $num; $i++):
+        $arr[$i-1] = $str;
+    endfor;
+    return $arr;
+}
+echo "<br />", "Массив, заполненный заданными значениями: ", implode(", ", arrayFill("lol", 5));
+
+$twoDimensionalArr = [[158, 13, 2], [1, 7], [89]];
+function sumArray($arr)
+{
+    $sum = 0;
+    foreach ($arr as $value):
+        if (is_array($value)):
+            $sum += sumArray($value);
+        else:
+            $sum += $value;
+        endif;
+    endforeach;
+    return $sum;
+}
+echo "<br />", "Сумма двумерного массива: ", sumArray($twoDimensionalArr);
+
+function createTwoDimensionalArray($rows, $columns)
+{
+    for ($i = 0; $i < $rows; $i++):
+        $arr[$i] = [];
+        for ($j = 0; $j < $columns; $j++):
+            $arr[$i][$j] = ($i * $columns) + ($j + 1);
+        endfor;
+    endfor;
+
+    return $arr;
+}
+$createdArr = createTwoDimensionalArray(3, 3);
+echo "<br />", "Созданный двумерный массив: ", "<br />";
+for ($i = 0; $i < sizeof($createdArr); $i++):
+    for ($j = 0; $j < sizeof($createdArr[$i]); $j++):
+        echo $createdArr[$i][$j]." ";
+    endfor;
+    echo "<br />";
+endfor;
+
+$multiArr = [2, 5, 3, 9];
+$result = ($multiArr[0] * $multiArr[1]) + ($multiArr[2] * $multiArr[3]);
+echo "Результат операций с массивом [2, 5, 3, 9]: ", $result;
+
+$user = ['name' => 'Bogdan', 'surname' => 'Vavilov', 'patronymic' => 'Sergeevich'];
+echo "<br />", "Имя, фамилия, отчество: ", $user['name'].' '.$user['surname'].' '.$user['patronymic'];
+
+$date = ['year' => '2024', 'month' => '03', 'day' => '08'];
+echo "<br />", "Дата: ", $date['year'].'-'.$date['month'].'-'.$date['day'];
+
+$arr1 = ['a', 'b', 'c', 'd', 'e'];
+echo "<br />", "Количество элементов массива ['a', 'b', 'c', 'd', 'e']: ", sizeof($arr1);
+
+$arr2 = ['a', 'b', 'c', 'd', 'e'];
+echo "<br />", "Последний элемент массива ['a', 'b', 'c', 'd', 'e']: ", $arr1[4];
+echo "<br />", "Предпоследний элемент массива ['a', 'b', 'c', 'd', 'e']: ", $arr1[3];
+
