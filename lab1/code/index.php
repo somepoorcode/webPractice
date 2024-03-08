@@ -18,3 +18,5 @@ echo "$number";
 echo "\n";
 $number1 = 14.325;
 echo "$number1";
+$number2 = 2.325;
+echo "\n", $number1-$number2;
