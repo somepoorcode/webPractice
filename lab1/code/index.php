@@ -127,8 +127,8 @@ function printStringReturnNumber($str)
     $num = 15;
     return $num;
 }
-$my_num = printStringReturnNumber("Artem");
-echo "<br />", $my_num;
+$myNum = printStringReturnNumber("Artem");
+echo "<br />", $myNum;
 
 
 // Task 16
@@ -138,22 +138,23 @@ function increaseEnthusiasm($str)
     $str .= "!";
     return $str;
 }
-echo "<br />", increaseEnthusiasm("Aaa");
+echo "<br />", "Результат работы increaseEnthusiasm(): ", increaseEnthusiasm("Aaa");
 
 function repeatThreeTimes($str)
 {
     $str .= " " . $str . " " . $str;
     return $str;
 }
-echo "<br />", repeatThreeTimes("У него нож.");
+echo "<br />", "Результат работы repeatThreeTimes(): ", repeatThreeTimes("У него нож.");
 
-echo "<br />", increaseEnthusiasm(repeatThreeTimes("Беги"));
+echo "<br />", "Результат работы increaseEnthusiasm(repeatThreeTimes()): ",
+increaseEnthusiasm(repeatThreeTimes("Беги"));
 
 function cut($str, $num = 10)
 {
     return substr($str, $num);
 }
-echo "<br />", cut("111115", 5);
+echo "<br />", "Результат работы cut() при вводе строки '111115' и числа 5: ", cut("111115", 5);
 
 $someArr = [1, 4, 5, 1984, 2024];
 function printArr($arr, $index = 0)
@@ -163,7 +164,7 @@ function printArr($arr, $index = 0)
         printArr($arr, $index + 1);
     endif;
 }
-echo "<br />", printArr($someArr);
+echo "<br />", "Вывод массива с помощью рекурсии: ", printArr($someArr);
 
 $someNum = rand(999, 9999);
 function countDigitsSum($num)
@@ -181,7 +182,7 @@ function countDigitsSum($num)
 
     return $num;
 }
-echo "<br />", countDigitsSum($someNum);
+echo "<br />", "Сумма цифр массива: ", countDigitsSum($someNum);
 
 
 // Task 17
