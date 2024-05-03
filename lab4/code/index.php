@@ -28,11 +28,14 @@
 
                 $response = $service->spreadsheets_values->get($spreadsheetId, $range);
                 $values = $response->getValues();
+                $existingCategories = [];
 
                 if (!empty($values)) {
                     foreach ($values as $row) {
-                        if (!empty($row[0])) {
-                            echo "<option value=\"{$row[0]}\">" . ucfirst($row[0]) . "</option>";
+                        $categoryName = $row[0];
+                        if (!empty($categoryName) && !in_array($categoryName, $existingCategories)) {
+                            $existingCategories[] = $categoryName;
+                            echo "<option value=\"{$categoryName}\">" . ucfirst($categoryName) . "</option>";
                         }
                     }
                 }
