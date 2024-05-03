@@ -3,13 +3,22 @@
         'name' => 'seredov/code',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'c3911824edf064129ae8c3fdee4fcb2bd2a0a9e7',
+        'reference' => 'dfd3161019ee3754b625bb739737529e293b69e6',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'asimlqt/php-google-spreadsheet-client' => array(
+            'pretty_version' => 'v3.0.2',
+            'version' => '3.0.2.0',
+            'reference' => 'fb82cdc12e6cef559a8f1e42dc26e0905f565055',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../asimlqt/php-google-spreadsheet-client',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'firebase/php-jwt' => array(
             'pretty_version' => 'v6.10.0',
             'version' => '6.10.0.0',
@@ -190,7 +199,7 @@
         'seredov/code' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'c3911824edf064129ae8c3fdee4fcb2bd2a0a9e7',
+            'reference' => 'dfd3161019ee3754b625bb739737529e293b69e6',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

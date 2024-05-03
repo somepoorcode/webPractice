@@ -58,8 +58,8 @@ class ComposerStaticInit8c88f04a2f4b00fa275047857c6242d8
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -100,6 +100,7 @@ class ComposerStaticInit8c88f04a2f4b00fa275047857c6242d8
         'Google\\' => 
         array (
             0 => __DIR__ . '/..' . '/google/apiclient/src',
+            1 => __DIR__ . '/..' . '/asimlqt/php-google-spreadsheet-client/src/Google',
         ),
         'Firebase\\JWT\\' => 
         array (
