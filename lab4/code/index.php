@@ -16,12 +16,24 @@
             <label for="category">Categories</label><br />
             <select name="category" required style="width: 300px;height: 22px;">
                 <?php
-                $categoriesDirectory = './categories/';
-                $files = scandir($categoriesDirectory);
-                foreach ($files as $file) {
-                    if ($file !== '.' && $file !== '..' && is_dir($categoriesDirectory . $file)) {
-                        $categoryName = basename($file);
-                        echo "<option value=\"$categoryName\">" . ucfirst($categoryName) . "</option>";
+                require __DIR__ . '/vendor/autoload.php';
+                $client = new \Google_Client();
+                $client->setScopes([\Google_Service_Sheets::SPREADSHEETS]);
+                $client->setAuthConfig(__DIR__ . '/key.json');
+
+                $service = new Google_Service_Sheets($client);
+
+                $spreadsheetId = '16wMqqQoSJlNddFLXJ-Y7SXs-flDv3z6e124R640c1Y8';
+                $range = 'Лист1!B:B';
+
+                $response = $service->spreadsheets_values->get($spreadsheetId, $range);
+                $values = $response->getValues();
+
+                if (!empty($values)) {
+                    foreach ($values as $row) {
+                        if (!empty($row[0])) {
+                            echo "<option value=\"{$row[0]}\">" . ucfirst($row[0]) . "</option>";
+                        }
                     }
                 }
                 ?>
@@ -46,31 +58,22 @@
             </thead>
             <tbody>
             <tbody>
-                <?php
-                $categoriesDirectory = './categories/';
-                $categories = scandir($categoriesDirectory);
+            <?php
+            $range = 'Лист1';
+            $response = $service->spreadsheets_values->get($spreadsheetId, $range);
+            $values = $response->getValues();
 
-                foreach ($categories as $category) {
-                    if ($category !== '.' && $category !== '..' && is_dir($categoriesDirectory . $category)) {
-                        $files = scandir($categoriesDirectory . $category);
-
-                        foreach ($files as $file) {
-                            if ($file !== '.' && $file !== '..') {
-                                $filePath = $categoriesDirectory . $category . '/' . $file;
-                                $fileContents = file_get_contents($filePath);
-                                $fileContentsArray = explode("\n", $fileContents);
-
-                                echo "<tr>";
-                                echo "<td>" . ($fileContentsArray[0]) . "</td>";
-                                echo "<td>" . ucfirst($category) . "</td>";
-                                echo "<td>" . ($fileContentsArray[2]) . "</td>";
-                                echo "<td>" . ($fileContentsArray[3]) . "</td>";
-                                echo "</tr>";
-                            }
-                        }
-                    }
+            if (!empty($values)) {
+                foreach ($values as $row) {
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($row[0]) . "</td>";
+                    echo "<td>" . htmlspecialchars(ucfirst($row[1])) . "</td>";
+                    echo "<td>" . htmlspecialchars($row[2]) . "</td>";
+                    echo "<td>" . htmlspecialchars($row[3]) . "</td>";
+                    echo "</tr>";
                 }
-                ?>
+            }
+            ?>
             </tbody>
 
             </tbody>
