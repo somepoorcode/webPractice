@@ -8,73 +8,60 @@
     <title>Marketplace</title>
 </head>
 <body>
-    <div id="form">
-        <form action="save.php" method="post">
-            <label for="email">Email</label><br />
-            <input type="email" name="mail" required style="width: 292px;height: 15px;"><br />
+<div id="form">
+    <form action="save.php" method="post">
+        <label for="email">Email</label><br />
+        <input type="email" name="mail" required style="width: 292px;height: 15px;"><br />
 
-            <label for="category">Categories</label><br />
-            <select name="category" required style="width: 300px;height: 22px;">
-                <?php
-                $categoriesDirectory = './categories/';
-                $files = scandir($categoriesDirectory);
-                foreach ($files as $file) {
-                    if ($file !== '.' && $file !== '..' && is_dir($categoriesDirectory . $file)) {
-                        $categoryName = basename($file);
-                        echo "<option value=\"$categoryName\">" . ucfirst($categoryName) . "</option>";
-                    }
-                }
-                ?>
-            </select><br />
+        <label for="category">Categories</label><br />
+        <select name="category" required style="width: 300px;height: 22px;">
+            <option value="cars">Cars</option>
+            <option value="electronics">Electronics</option>
+            <option value="food">Food</option>
+            <option value="other">Other</option>
+        </select><br />
 
-            <label for="title">Title</label><br />
-            <input type="text" name="title" required style="width: 292px;height: 16px;"><br />
+        <label for="title">Title</label><br />
+        <input type="text" name="title" required style="width: 292px;height: 16px;"><br />
 
-            <label for="description">Description</label><br />
-            <textarea rows="10" name="description" style="width: 294px;resize: none;"></textarea><br/>
+        <label for="description">Description</label><br />
+        <textarea rows="10" name="description" style="width: 294px;resize: none;"></textarea><br/>
 
-            <input type="submit" value="Save">
-        </form>
-    </div>
-    <div id="table">
-        <table>
-            <thead>
-                <th>Email</th>
-                <th>Category</th>
-                <th>Title</th>
-                <th>Description</th>
-            </thead>
-            <tbody>
-            <tbody>
-                <?php
-                $categoriesDirectory = './categories/';
-                $categories = scandir($categoriesDirectory);
+        <input type="submit" value="Save">
+    </form>
+</div>
+<div id="table">
+    <table>
+        <thead>
+        <th>Email</th>
+        <th>Category</th>
+        <th>Title</th>
+        <th>Description</th>
+        </thead>
+        <tbody>
+        <?php
+        $conn = new mysqli("db", "root", "1111", "web");
 
-                foreach ($categories as $category) {
-                    if ($category !== '.' && $category !== '..' && is_dir($categoriesDirectory . $category)) {
-                        $files = scandir($categoriesDirectory . $category);
+        $sql = "SELECT email, category, title, description FROM ad";
+        $result = $conn->query($sql);
 
-                        foreach ($files as $file) {
-                            if ($file !== '.' && $file !== '..') {
-                                $filePath = $categoriesDirectory . $category . '/' . $file;
-                                $fileContents = file_get_contents($filePath);
-                                $fileContentsArray = explode("\n", $fileContents);
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["category"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["title"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["description"]) . "</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "0 results";
+        }
 
-                                echo "<tr>";
-                                echo "<td>" . ($fileContentsArray[0]) . "</td>";
-                                echo "<td>" . ucfirst($category) . "</td>";
-                                echo "<td>" . ($fileContentsArray[2]) . "</td>";
-                                echo "<td>" . ($fileContentsArray[3]) . "</td>";
-                                echo "</tr>";
-                            }
-                        }
-                    }
-                }
-                ?>
-            </tbody>
-
-            </tbody>
-        </table>
-    </div>
+        $conn->close();
+        ?>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
